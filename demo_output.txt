@@ -1,0 +1,76 @@
+﻿==========================================================================
+ EMPLOYEE PERFORMANCE ANALYZER - TCP CLIENT
+ Functional Programming + TCP Sockets + FSM + SymPy
+==========================================================================
+[CLIENT] Connected to server 127.0.0.1:65432
+[CLIENT] Sent 12 employee record(s), waiting for reply ...
+[CLIENT] Analysis report received from server
+
+==========================================================================
+                   EMPLOYEE PERFORMANCE ANALYSIS REPORT                   
+==========================================================================
+
+Total employees analysed : 12
+Company average score    : 77.16
+Best employee            : Kavya Menon (E108, QA) - score 89.93
+
+--- MERIT RANKING --------------------------------------------------------
+Rank  ID     Name            Department    Score    FSM State
+--------------------------------------------------------------------------
+1     E108   Kavya Menon     QA            89.93    TOP_PERFORMER
+2     E104   Sneha Iyer      Development   89.7     HIGH_PERFORMER
+3     E101   Aarav Sharma    Development   86.25    TOP_PERFORMER
+4     E106   Ananya Das      Design        84.15    HIGH_PERFORMER
+5     E112   Divya Reddy     Design        84.07    HIGH_PERFORMER
+6     E110   Meera Joshi     Development   82.9     HIGH_PERFORMER
+7     E102   Priya Nair      QA            79.1     HIGH_PERFORMER
+8     E107   Imran Khan      Development   75.4     HIGH_PERFORMER
+9     E103   Rahul Verma     Design        70.17    AVERAGE
+10    E111   Ravi Kumar      QA            68.1     AVERAGE
+11    E105   Karthik Rao     QA            59.85    PROBATION
+12    E109   Sanjay Gupta    Design        56.25    PROBATION
+
+--- FSM DECISIONS (start state + input event -> final state) --------------
+ID     Name            Start State    Event      Final State      Recommendation
+--------------------------------------------------------------------------
+E101   Aarav Sharma    AVERAGE        EXCELLENT  TOP_PERFORMER    Promotion recommended - leadership track
+E102   Priya Nair      AVERAGE        GOOD       HIGH_PERFORMER   Eligible for annual performance bonus
+E103   Rahul Verma     AVERAGE        OK         AVERAGE          Regular appraisal + skill-upgradation training
+E104   Sneha Iyer      NEW_JOINER     EXCELLENT  HIGH_PERFORMER   Eligible for annual performance bonus
+E105   Karthik Rao     AVERAGE        LOW        PROBATION        Enroll in Performance Improvement Plan (PIP)
+E106   Ananya Das      AVERAGE        GOOD       HIGH_PERFORMER   Eligible for annual performance bonus
+E107   Imran Khan      AVERAGE        GOOD       HIGH_PERFORMER   Eligible for annual performance bonus
+E108   Kavya Menon     AVERAGE        EXCELLENT  TOP_PERFORMER    Promotion recommended - leadership track
+E109   Sanjay Gupta    NEW_JOINER     LOW        PROBATION        Enroll in Performance Improvement Plan (PIP)
+E110   Meera Joshi     AVERAGE        GOOD       HIGH_PERFORMER   Eligible for annual performance bonus
+E111   Ravi Kumar      AVERAGE        OK         AVERAGE          Regular appraisal + skill-upgradation training
+E112   Divya Reddy     AVERAGE        GOOD       HIGH_PERFORMER   Eligible for annual performance bonus
+
+--- DEPARTMENT SUMMARY ---------------------------------------------------
+Design         headcount=4   average=73.66   top=0  probation=1
+Development    headcount=4   average=83.56   top=1  probation=0
+QA             headcount=4   average=74.25   top=1  probation=1
+
+--- FSM STATE DISTRIBUTION ----------------------------------------------
+  PROBATION        : 2
+  AVERAGE          : 2
+  HIGH_PERFORMER   : 6
+  TOP_PERFORMER    : 2
+
+--- SymPy SYMBOLIC ANALYSIS --------------------------------------------
+  Symbolic score formula : attendance*w_attendance + overtime_norm*w_overtime + quality*w_quality + 100*task_ratio*w_task
+  Sum of weights         : 1  (= 100% ? True)
+  dScore/dquality        : 0.35 (each quality point adds 0.35 to the score)
+  Most sensitive employee: Kavya Menon (E108) - dScore/dw_quality = 92.0
+  Required quality score to reach target 75:
+    Rahul Verma     current=70.17   required quality=88.81   achievable=YES
+    Karthik Rao     current=59.85   required quality=108.29  achievable=NO - needs task/attendance improvement too
+    Sanjay Gupta    current=56.25   required quality=113.57  achievable=NO - needs task/attendance improvement too
+    Ravi Kumar      current=68.1    required quality=91.71   achievable=YES
+
+  Employees below score 60 (PIP required) : Karthik Rao, Sanjay Gupta
+  Top performers (score >= 85)            : Aarav Sharma, Sneha Iyer, Kavya Menon
+
+==========================================================================
+                               END OF REPORT                              
+==========================================================================

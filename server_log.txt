@@ -1,0 +1,13 @@
+============================================================
+ EMPLOYEE PERFORMANCE ANALYZER - SERVER
+ Folder: C:\Users\DELL\Downloads\app_project\employee_performance_analyzer
+ Keep this window open. Press Ctrl+C to stop the server.
+============================================================
+======================================================================
+ EMPLOYEE PERFORMANCE ANALYZER - SERVER
+ Functional Programming + TCP Sockets + FSM + SymPy
+======================================================================
+[SERVER] Employee Performance Analyzer listening on 127.0.0.1:65432 ...
+[SERVER] Connection accepted from ('127.0.0.1', 62801)
+[SERVER] Received action='analyze' with 12 employee record(s)
+[SERVER] Analysis complete: company average = 77.16
